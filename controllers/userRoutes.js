@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
-const { User, Blog, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.post('/', (req, res) => {
     User.create({
@@ -22,7 +22,11 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/login', async (req, res) => {
+router.get('/', (req, res) => {
+  res.render('login')
+});
+
+router.post('/', async (req, res) => {
     try {
       const userData = await User.findOne({ 
               where: { username: req.body.username } 
@@ -56,13 +60,13 @@ router.post('/login', async (req, res) => {
     }
   });
   
-  router.post('/logout', (req, res) => {
+  router.get('/', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
-        res.status(204).end();
+        res.redirect('/login')
       });
     } else {
-      res.status(404).end();
+      res.redirect('/login')
     }
   });
 
