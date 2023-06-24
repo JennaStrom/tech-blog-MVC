@@ -7,15 +7,16 @@ const signupFormHandler = async (event) => {
 
     if (username && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/users', {
+        const response = await fetch('/signup', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json'}
         });
         // If successful, redirect the browser to the dashboard page
+          if(response.ok) {
             document.location.replace('/dashboard');
           } else {
-            alert(response.statusText);
+            alert('Failed to log in');
           }
     }
 };
