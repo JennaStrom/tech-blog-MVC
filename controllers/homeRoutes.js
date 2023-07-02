@@ -2,6 +2,11 @@ const router = require('express').Router();
 const { User, Blog, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/', (req, res) => {
+	res.render('homepage')
+
+});
+
 router.get('/signUp', (req, res) => {
 	if (req.session.logged_in) {
 		res.redirect('/dashboard');
