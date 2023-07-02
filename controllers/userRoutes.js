@@ -22,9 +22,9 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/', (req, res) => {
-  res.render('login')
-});
+// router.get('/', (req, res) => {
+//   res.render('login')
+// });
 
 router.post('/', async (req, res) => {
     try {
@@ -60,14 +60,14 @@ router.post('/', async (req, res) => {
     }
   });
   
-  router.get('/', (req, res) => {
-    if (req.session.logged_in) {
-      req.session.destroy(() => {
-        res.redirect('/login')
-      });
-    } else {
-      res.redirect('/login')
-    }
-  });
+  // router.get('/', (req, res) => {
+  //   if (req.session.logged_in) {
+  //     req.session.destroy(() => {
+  //       res.redirect('/login')
+  //     });
+  //   } else {
+  //     res.redirect('/login')
+  //   }
+  // });
 
 module.exports = router;
