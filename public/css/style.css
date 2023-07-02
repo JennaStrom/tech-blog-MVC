@@ -1,0 +1,8 @@
+#title {
+    color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#nav-bar-login {
+    align-items: flex-end;
+}
