@@ -1,0 +1,25 @@
+<div class="row mb-4 project">
+      <div class="col-md-5">
+        <h2>
+          <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+        </h2>
+
+        <p>Created by {{user.username}} on {{format_date blog.created_at}}</p>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <p>
+        {{blog.body}}
+      </p>
+    </div>
+  </div>
+
+  <container>
+    <div class="comment-box">
+        <label for="comments">Please leave a comment:</label>
+        <input class="form-input" type="text" id="comment" name="comment" />
+        </div>
+      <div class="comment-button">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </container>
